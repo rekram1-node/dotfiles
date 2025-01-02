@@ -1,6 +1,5 @@
 fastfetch
 
-# testing
 # Load functions
 FUNCTION_DIR=~/.zsh_functions
 
