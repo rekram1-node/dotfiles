@@ -3,6 +3,7 @@
 # Define the lines to append
 CONFIG_LINES="[git]
     autoCommit = true
+    autoPush = true
     commitMessageTemplate = \"{{ promptString \\\"Commit message\\\" }}\""
 
 # Target file
