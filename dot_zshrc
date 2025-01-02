@@ -1,0 +1,48 @@
+fastfetch
+
+# Load functions
+FUNCTION_DIR=~/.zsh_functions
+
+# Load all function scripts from the directory
+for func_file in $FUNCTION_DIR/*.sh; do
+  source $func_file
+done
+
+HISTFILE=~/.history
+HISTSIZE=10000
+SAVEHIST=50000
+
+setopt inc_append_history
+
+autoload -Uz compinit && compinit
+
+# Aliases
+
+## This ensures vscode doesn't open multiple times
+alias code="open -b com.microsoft.VSCode"
+
+# Variables
+export EDITOR="vim"
+export SUDO_EDITOR="$EDITOR"
+
+## $PATH Configs
+
+export PATH="${HOME}/bin:${PATH}"
+export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
+export PATH="${HOME}/.local/bin:$PATH"
+
+## go specific path cfg
+export GOPATH="$HOME/go"
+export PATH="$GOPATH/bin:$PATH"
+# GOPRIVATE is defined in .zshenv
+
+
+# Tooling configurations
+eval "$(starship init zsh)"
+eval "$(zoxide init zsh)"
+
+## FZF
+# source <(fzf --zsh)
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+

@@ -1,0 +1,168 @@
+{
+  // "workbench.editor.enablePreview": false,
+  // "window.openFoldersInNewWindow": "off",
+  "workbench.colorTheme": "Default Dark+",
+  "workbench.editorAssociations": {
+    "*.ipynb": "jupyter-notebook"
+  },
+  "editor.fontFamily": "'Hack Nerd Font Mono', 'Courier New', monospace",
+  "notebook.cellToolbarLocation": {
+    "default": "right",
+    "jupyter-notebook": "left"
+  },
+  "python.defaultInterpreterPath": "C:\\Users\\aiden\\AppData\\Local\\Microsoft\\WindowsApps\\python3.9.exe",
+  "security.workspace.trust.untrustedFiles": "open",
+  "go.toolsManagement.autoUpdate": true,
+  "files.autoSave": "onWindowChange",
+  "[python]": {
+    "editor.formatOnType": true
+  },
+  "vim.leader": "<space>",
+  "vim.easymotion": true,
+  "vim.incsearch": true,
+  "vim.useSystemClipboard": true,
+  "vim.useCtrlKeys": true,
+  "vim.hlsearch": true,
+  // shift + cmd + e will toggle file tree focus
+  "vim.insertModeKeyBindings": [
+    // Easy escape
+    {
+      "before": [ "j", "j" ],
+      "after": [ "<Esc>" ]
+    }
+  ],
+  "vim.visualModeKeyBindingsNonRecursive": [
+    // prevent delete from overwriting register
+    {
+      "before": ["d"],
+      "after": ["\"","_", "d"]
+    }
+  ],
+  "vim.visualModeKeyBindings": [
+    // Stay in visual mode while indenting
+    {
+      "before": [ "shift+tab" ],
+      "commands": [ "editor.action.outdentLines" ]
+    },
+    {
+      "before": [ "tab" ],
+      "commands": [ "editor.action.indentLines" ]
+    },
+    // Move selected lines while staying in visual mode
+    {
+      "before": [ "J" ],
+      "commands": [ "editor.action.moveLinesDownAction" ]
+    },
+    {
+      "before": [ "K" ],
+      "commands": [ "editor.action.moveLinesUpAction" ]
+    },
+    // toggle comment selection
+    {
+      "before": [ "leader", "c" ],
+      "commands": [ "editor.action.commentLine" ]
+    },
+    {
+      "before": [
+        "leader",
+        "leader"
+      ],
+      "after": [
+        "<Esc>"
+      ]
+    },
+    // prevent pasting from copying
+    // overwritten text to register
+    {
+      "before": ["p"],
+      "after":["P"]
+    }
+  ],
+  "vim.normalModeKeyBindingsNonRecursive": [
+    // NAVIGATION
+    // switch b/w buffers
+    { "before": ["<S-h>"], "commands": [":bprevious"] },
+    { "before": ["<S-l>"], "commands": [":bnext"] },
+    // FILE TREE
+    {
+      // for some reason this doesn't seem to work...
+      "before": ["leader", "n", "e"],
+      "commands": ["workbench.explorer.fileView.focus"]
+    },
+
+    {
+      "before": [ "<leader>", "d" ],
+      "after": [ "d", "d" ]
+    },
+    {
+      "before": [ "<C-n>" ],
+      "commands": [ ":nohl" ]
+    },
+    {
+      "before": [ "K" ],
+      "commands": [ "lineBreakInsert" ],
+      "silent": true
+    },
+    // prevent delete from overwriting register
+    {
+      "before": ["d"],
+      "after": ["\"","_", "d"]
+    },
+    // panes
+    {
+      "before": ["leader", "h"],
+      "commands": ["workbench.action.focusLeftGroup"]
+    },
+    {
+      "before": ["leader", "j"],
+      "commands": ["workbench.action.focusBelowGroup"]
+    },
+    {
+      "before": ["leader", "k"],
+      "commands": ["workbench.action.focusAboveGroup"]
+    },
+    {
+      "before": ["leader", "l"],
+      "commands": ["workbench.action.focusRightGroup"]
+    },
+    // custom bindings
+    {
+      // gt -> go to definition
+      // gtd -> go to type definition
+      "before": ["g", "t", "d"],
+      "commands": ["editor.action.goToTypeDefinition"]
+    },
+  ],
+  "vim.handleKeys": {
+    "<C-a>": false,
+    "<C-f>": false
+  },
+  // "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "**/node_modules": true
+  },
+  "workbench.sideBar.location": "right",
+  "git.openRepositoryInParentFolders": "never",
+  "terminal.integrated.enableMultiLinePasteWarning": "never",
+  "typescript.updateImportsOnFileMove.enabled": "always"
+}

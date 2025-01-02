@@ -1,0 +1,69 @@
+// Place your key bindings in this file to override the defaults
+[
+    {
+        "key": "cmd+j",
+        "command": "workbench.action.terminal.focus"
+    },
+    {
+        "key": "cmd+j",
+        "command": "workbench.action.focusActiveEditorGroup",
+        "when": "terminalFocus"
+    },
+    {
+        "key": "cmd+a",
+        "command": "workbench.action.terminal.focusNext",
+        "when": "terminalFocus"
+    },
+    {
+        "key": "cmd+b",
+        "command": "workbench.action.terminal.focusPrevious",
+        "when": "terminalFocus"
+    },
+    {
+        "key": "cmd+n",
+        "command": "workbench.action.terminal.new",
+        "when": "terminalFocus"
+    },
+    // FILE TREE
+    {
+        "command": "workbench.action.toggleSidebarVisibility",
+        "key": "cmd+e"
+    },
+    {
+        "command": "workbench.files.action.focusFilesExplorer",
+        "key": "cmd+e",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "n",
+        "command": "explorer.newFile",
+        "when": "filesExplorerFocus && !inputFocus"
+    },
+    {
+        "command": "renameFile",
+        "key": "r",
+        "when": "filesExplorerFocus && !inputFocus"
+    },
+    {
+        "command": "explorer.newFolder",
+        "key": "shift+n",
+        "when": "explorerViewletFocus && !inputFocus"
+    },
+    {
+        "command": "deleteFile",
+        "key": "d",
+        "when": "filesExplorerFocus && !inputFocus"
+    },
+    // close a folder in side panel
+    {
+        "command": "list.collapse",
+        "key": "c",
+        "when": "filesExplorerFocus && !inputFocus"
+    },
+    // cmd+r will show references for a piece of code
+    {
+        "command": "editor.action.goToReferences",
+        "key": "cmd+r",
+        "when": "editorTextFocus"
+    }
+]
