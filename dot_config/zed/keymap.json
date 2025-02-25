@@ -1,0 +1,39 @@
+// Zed keymap
+//
+// For information on binding keys, see the Zed
+// documentation: https://zed.dev/docs/key-bindings
+//
+// To see the default key bindings run `zed: open default keymap`
+// from the command palette.
+[
+  {
+    "context": "Workspace",
+    "bindings": {
+      "cmd-e": "workspace::ToggleRightDock"
+    }
+  },
+  {
+    "context": "Editor",
+    "bindings": {
+      "cmd-e": "project_panel::ToggleFocus"
+      // "j k": ["workspace::SendKeystrokes", "escape"]
+    }
+  },
+  {
+    "context": "vim_mode == insert",
+    "bindings": {
+      "j j": "vim::NormalBefore"
+    }
+  },
+  {
+    "context": "vim_mode == visual",
+    "bindings": {
+      "space space": "vim::SwitchToNormalMode"
+    }
+  },
+  {
+    "bindings": {
+      // "cmd-k": ["workspace::ActivatePaneInDirection", "Right"]
+    }
+  }
+]
