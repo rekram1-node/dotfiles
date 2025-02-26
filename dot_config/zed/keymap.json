@@ -28,7 +28,9 @@
   {
     "context": "vim_mode == visual",
     "bindings": {
-      "space space": "vim::SwitchToNormalMode"
+      "space space": "vim::SwitchToNormalMode",
+      "tab": "editor::Indent",
+      "shift-tab": "editor::Outdent"
     }
   },
   {
