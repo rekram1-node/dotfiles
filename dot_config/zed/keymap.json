@@ -5,6 +5,21 @@
 //
 // To see the default key bindings run `zed: open default keymap`
 // from the command palette.
+
+/*
+  So far keymaps mostly map w my vscode config
+  * tab interactions
+  * comments
+  * literal key tab interactions
+  * opening file tree
+  * opening cmd line
+  * using spaces to exit visual mode
+  * using jj to enter normal mode
+
+  Primary differences:
+  * toggle betwen panes w/ cmd + <n>
+  * open new pane w/ cmd + <n+1>
+*/
 [
   {
     "context": "Workspace",
@@ -15,8 +30,9 @@
   {
     "context": "Editor",
     "bindings": {
-      "cmd-e": "project_panel::ToggleFocus"
-      // "j k": ["workspace::SendKeystrokes", "escape"]
+      "cmd-e": "project_panel::ToggleFocus",
+      "cmd-r": "editor::FindAllReferences",
+      "enter": "editor::OpenExcerpts"
     }
   },
   {

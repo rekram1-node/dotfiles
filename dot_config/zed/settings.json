@@ -7,6 +7,9 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "features": {
+    "edit_prediction_provider": "zed"
+  },
   "project_panel": {
     "dock": "right"
   },
@@ -26,5 +29,16 @@
   "terminal": {
     "line_height": "standard",
     "font_family": "Hack Nerd Font"
+  },
+  "languages": {
+    // Black Formatter
+    "Python": {
+      "format_on_save": {
+        "external": {
+          "command": "black",
+          "arguments": ["-"]
+        }
+      }
+    }
   }
 }
