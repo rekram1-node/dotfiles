@@ -50,6 +50,18 @@
     }
   },
   {
+    "context": "Editor && vim_mode == visual",
+    "bindings": {
+      "d": ["workspace::SendKeystrokes", "\" _ d"]
+    }
+  },
+  {
+    "context": "Editor && vim_mode == normal",
+    "bindings": {
+      "d d": ["workspace::SendKeystrokes", "\" _ d"]
+    }
+  },
+  {
     "bindings": {
       // "cmd-k": ["workspace::ActivatePaneInDirection", "Right"]
     }
