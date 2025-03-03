@@ -24,7 +24,16 @@
   {
     "context": "Workspace",
     "bindings": {
-      "cmd-e": "workspace::ToggleRightDock"
+      "cmd-e": "project_panel::ToggleFocus"
+    }
+  },
+  {
+    "context": "ProjectPanel",
+    "bindings": {
+      "cmd-e": "workspace::ToggleRightDock",
+      "n": "project_panel::NewFile",
+      "d": "project_panel::Delete",
+      "shift-n": "project_panel::NewDirectory"
     }
   },
   {
@@ -58,12 +67,7 @@
   {
     "context": "Editor && vim_mode == normal",
     "bindings": {
-      "d d": ["workspace::SendKeystrokes", "\" _ d"]
-    }
-  },
-  {
-    "bindings": {
-      // "cmd-k": ["workspace::ActivatePaneInDirection", "Right"]
+      "d": ["workspace::SendKeystrokes", "\" _ d"]
     }
   }
 ]
