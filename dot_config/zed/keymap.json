@@ -55,7 +55,9 @@
     "bindings": {
       "space space": "vim::SwitchToNormalMode",
       "tab": "editor::Indent",
-      "shift-tab": "editor::Outdent"
+      "shift-tab": "editor::Outdent",
+      "shift-j": "editor::MoveLineDown",
+      "shift-k": "editor::MoveLineUp"
     }
   },
   {
