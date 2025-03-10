@@ -28,7 +28,7 @@
     }
   },
   {
-    "context": "ProjectPanel",
+    "context": "ProjectPanel && not_editing",
     "bindings": {
       "cmd-e": "workspace::ToggleRightDock",
       "n": "project_panel::NewFile",
