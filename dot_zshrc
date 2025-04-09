@@ -37,6 +37,28 @@ export GOPATH="$HOME/go"
 export PATH="$GOPATH/bin:$PATH"
 # GOPRIVATE is defined in .zshenv
 
+## ---------git----------
+alias gp="git pull"
+alias gpp="git push"
+alias gs="git switch"
+alias gsc="git switch -C"
+alias gc="git commit -m"
+alias gca="git add . && git commit -m"
+alias gclean="git reset --hard && git clean -fd"
+alias dev="gs dev && gp"
+alias main='
+  cd "$(git rev-parse --show-toplevel)" &&
+  if git show-ref --quiet refs/heads/main; then
+    gs main
+  elif git show-ref --quiet refs/heads/master; then
+    gs master
+  else
+    echo >&2 "Neither main nor master branch exists."
+    exit 1
+  fi
+
+  gp
+'
 
 # Tooling configurations
 eval "$(starship init zsh)"
