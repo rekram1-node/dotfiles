@@ -1,16 +1,16 @@
 rebase() {
   # Detect main branch name (main or master)
   local main_branch
-        if git show-ref --verify --quiet refs/heads/dev; then
-          main_branch="dev"
-        elif git show-ref --verify --quiet refs/heads/master; then
-          main_branch="master"
-        elif git show-ref --verify --quiet refs/heads/main; then
-          main_branch="main"
-        else
-          echo "No main, master, or dev branch found."
-          exit 1
-        fi
+  if git show-ref --verify --quiet refs/heads/dev; then
+    main_branch="dev"
+  elif git show-ref --verify --quiet refs/heads/master; then
+    main_branch="master"
+  elif git show-ref --verify --quiet refs/heads/main; then
+    main_branch="main"
+  else
+    echo "No main, master, or dev branch found."
+    exit 1
+  fi
 
   # Get current branch name
   local current_branch
