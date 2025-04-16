@@ -33,6 +33,7 @@
       "cmd-e": "workspace::ToggleRightDock",
       "n": "project_panel::NewFile",
       "d": "project_panel::Delete",
+      "r": "project_panel::Rename",
       "shift-n": "project_panel::NewDirectory"
     }
   },
@@ -70,6 +71,18 @@
     "context": "Editor && vim_mode == normal",
     "bindings": {
       "d": ["workspace::SendKeystrokes", "\" _ d"]
+    }
+  },
+  {
+    "context": "Terminal",
+    "bindings": {
+      "cmd-b": "pane::ActivateNextItem"
+    }
+  },
+  {
+    "context": "Editor",
+    "bindings": {
+      "cmd-b": "git_panel::OpenMenu"
     }
   }
 ]
