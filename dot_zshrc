@@ -21,21 +21,7 @@ autoload -Uz compinit && compinit
 ## This ensures vscode doesn't open multiple times
 alias code="open -b com.microsoft.VSCode"
 
-# Variables
-export EDITOR="vim"
-export SUDO_EDITOR="$EDITOR"
-
-## $PATH Configs
-
-export PATH="${HOME}/bin:${PATH}"
-export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
-export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
-export PATH="${HOME}/.local/bin:$PATH"
-
-## go specific path cfg
-export GOPATH="$HOME/go"
-export PATH="$GOPATH/bin:$PATH"
-# GOPRIVATE is defined in .zshenv
+# alias python="python3"
 
 ## ---------git----------
 alias gp="git pull"
@@ -60,11 +46,68 @@ alias main='
   gp
 '
 
+
+## ----------squashing------------
+alias how-to-squash='echo "# Reset the current branch to the commit just before the last 12:
+git reset --hard HEAD~12
+# HEAD@{1} is where the branch was just before the previous command.
+# This command sets the state of the index to be as it would just
+# after a merge from that commit:
+git merge --squash HEAD@{1}
+
+# Commit those squashed changes.  The commit message will be helpfully
+# prepopulated with the commit messages of all the squashed commits:
+git commit"'
+
+# Variables
+export EDITOR="vim"
+export SUDO_EDITOR="$EDITOR"
+
+## $PATH Configs
+
+export PATH="${HOME}/bin:${PATH}"
+export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
+export PATH="${HOME}/.local/bin:$PATH"
+export PATH="/Users/aidencline/.cargo/bin:$PATH"
+
+export LDFLAGS="-L/opt/homebrew/opt/libpq/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/libpq/include"
+export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+
+## go specific path cfg
+export GOPATH="$HOME/go"
+export PATH="$GOPATH/bin:$PATH"
+# GOPRIVATE is defined in .zshenv
+
+## java specifc path cfg
+# export JAVA_HOME="/opt/homebrew/opt/openjdk@11/libexec/openjdk.jdk/Contents/Home"
+export JAVA_HOME="$(brew --prefix openjdk@17)"
+export PATH="$JAVA_HOME/bin:$PATH"
+
+
 # Tooling configurations
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
+eval "$(pyenv init --path)"
 
 ## FZF
 # source <(fzf --zsh)
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# sst
+export PATH=/Users/aidencline/.sst/bin:$PATH
+
+# bun completions
+[ -s "/Users/aidencline/.bun/_bun" ] && source "/Users/aidencline/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+source ~/.zshenv
