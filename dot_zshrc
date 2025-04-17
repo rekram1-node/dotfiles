@@ -42,6 +42,7 @@ alias main='
     echo >&2 "Neither main nor master branch exists."
     exit 1
   fi
+'
 
 # Variables
 export EDITOR="vim"
