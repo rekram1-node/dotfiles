@@ -1,10 +1,13 @@
 #!/bin/bash
 
 # Define the lines to append
-CONFIG_LINES="[git]
+CONFIG_LINES="
+[git]
     autoCommit = true
     autoPush = true
-    commitMessageTemplate = \"{{ promptString \\\"Commit message\\\" }}\""
+    commitMessageTemplate = \"{{ promptString \\\"Commit message\\\" }}\"
+[core]
+    excludesfile = \"$HOME/.gitignore_global\""
 
 # Target file
 TARGET_FILE="$HOME/.config/chezmoi/chezmoi.toml"
