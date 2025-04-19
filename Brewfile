@@ -1,12 +1,3 @@
-tap "go-task/tap"
-tap "goreleaser/tap"
-tap "hashicorp/tap"
-tap "homebrew/bundle"
-tap "homebrew/cask-fonts"
-tap "homebrew/services"
-tap "libsql/sqld"
-tap "tinygo-org/tools"
-tap "tursodatabase/tap"
 # TIFF library and utilities
 brew "libtiff"
 # New file format for still image compression
