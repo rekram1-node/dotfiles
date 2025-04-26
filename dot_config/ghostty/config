@@ -1,3 +1,3 @@
 # theme = gruvbox-material
-[keyboard.bindings]
-"cmd+b" = "NextTab"
+keybind = cmd+b=next_tab
+
