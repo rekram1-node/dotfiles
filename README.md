@@ -30,3 +30,8 @@ chezmoi add ~/.config/zed
 ```zsh
 chezmoi update
 ```
+
+## Sync remote
+```zsh
+chezmoi git push
+```
