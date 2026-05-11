@@ -164,5 +164,6 @@
   "workbench.sideBar.location": "right",
   "git.openRepositoryInParentFolders": "never",
   "terminal.integrated.enableMultiLinePasteWarning": "never",
-  "typescript.updateImportsOnFileMove.enabled": "always"
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "github.copilot.nextEditSuggestions.enabled": true
 }

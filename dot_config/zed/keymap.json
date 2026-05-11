@@ -30,16 +30,19 @@
   {
     "context": "ProjectPanel && not_editing",
     "bindings": {
+      // "cmd-e": "project_panel::ToggleFocus",
       "cmd-e": "workspace::ToggleRightDock",
       "n": "project_panel::NewFile",
       "d": "project_panel::Delete",
       "r": "project_panel::Rename",
+      "o": "project_panel::Open",
       "shift-n": "project_panel::NewDirectory"
     }
   },
   {
     "context": "Editor",
     "bindings": {
+      // "cmd-e": "workspace::ToggleRightDock",
       "cmd-e": "project_panel::ToggleFocus",
       "cmd-r": "editor::FindAllReferences",
       "enter": "editor::OpenExcerpts"
@@ -84,5 +87,18 @@
     "bindings": {
       "cmd-b": "git_panel::OpenMenu"
     }
+  },
+  {
+    "bindings": {
+      "cmd-shift-g": [
+        "task::Spawn",
+        { "task_name": "Critique", "reveal_target": "center" }
+      ]
+    }
   }
+  // {
+  //   "bindings": {
+  //     "cmd-shift-a": ["agent::NewExternalAgentThread", { "agent": "OpenCode" }]
+  //   }
+  // }
 ]

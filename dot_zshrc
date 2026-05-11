@@ -1,4 +1,4 @@
-fastfetch
+[[ -n "$FASTFETCH_ON_STARTUP" ]] && fastfetch
 
 # Load functions
 FUNCTION_DIR=~/.zsh_functions
@@ -14,14 +14,16 @@ SAVEHIST=50000
 
 setopt inc_append_history
 
-autoload -Uz compinit && compinit
+autoload -Uz compinit && compinit -C
 
 # Aliases
 
 ## This ensures vscode doesn't open multiple times
-alias code="open -b com.microsoft.VSCode"
+# alias code="open -b com.microsoft.VSCode"
 
-# alias python="python3"
+alias python="python3"
+
+alias kill-node="find . | grep node_modules$ | xargs rm -rf"
 
 ## ---------git----------
 alias gp="git pull"
@@ -51,11 +53,15 @@ export SUDO_EDITOR="$EDITOR"
 
 ## $PATH Configs
 
+. "$HOME/.cargo/env"
+
+
 export PATH="${HOME}/bin:${PATH}"
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 export PATH="${HOME}/.local/bin:$PATH"
 export PATH="/Users/aidencline/.cargo/bin:$PATH"
+export PATH="${HOME}/.npm/bin:$PATH"
 
 export LDFLAGS="-L/opt/homebrew/opt/libpq/lib"
 export CPPFLAGS="-I/opt/homebrew/opt/libpq/include"
@@ -68,7 +74,7 @@ export PATH="$GOPATH/bin:$PATH"
 
 ## java specifc path cfg
 # export JAVA_HOME="/opt/homebrew/opt/openjdk@11/libexec/openjdk.jdk/Contents/Home"
-export JAVA_HOME="$(brew --prefix openjdk@17)"
+export JAVA_HOME="/opt/homebrew/opt/openjdk@17"
 export PATH="$JAVA_HOME/bin:$PATH"
 
 
@@ -83,17 +89,40 @@ eval "$(pyenv init --path)"
 
 
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+_load_nvm() {
+  unset -f _load_nvm nvm node npm npx corepack
+  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+}
+nvm() { _load_nvm; nvm "$@"; }
+node() { _load_nvm; node "$@"; }
+npm() { _load_nvm; npm "$@"; }
+npx() { _load_nvm; npx "$@"; }
+corepack() { _load_nvm; corepack "$@"; }
 
 # sst
 export PATH=/Users/aidencline/.sst/bin:$PATH
 
 # bun completions
-[ -s "/Users/aidencline/.bun/_bun" ] && source "/Users/aidencline/.bun/_bun"
+[[ -n "$BUN_COMPLETIONS" && -s "/Users/aidencline/.bun/_bun" ]] && source "/Users/aidencline/.bun/_bun"
 
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
-source ~/.zshenv
+# opencode
+export PATH=/Users/aidencline/.opencode/bin:$PATH
+
+. "/Users/aidencline/.deno/env"
+# pnpm
+export PNPM_HOME="/Users/aidencline/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/aidencline/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/aidencline/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/aidencline/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/aidencline/Downloads/google-cloud-sdk/completion.zsh.inc'; fi

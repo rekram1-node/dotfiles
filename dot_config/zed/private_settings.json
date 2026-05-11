@@ -7,16 +7,44 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
-  "features": {
-    "edit_prediction_provider": "zed"
+  // "agent_servers": {
+  //   "your_agent": {
+  //     "type": "custom",
+  //     "command": "path_to_executable",
+  //     "args": [],
+  //     "env": {},
+  //   },
+  // },
+  "cli_default_open_behavior": "new_window",
+  "outline_panel": {
+    "dock": "left",
+  },
+  "collaboration_panel": {
+    "dock": "left",
+  },
+  "git_panel": {
+    "dock": "left",
+  },
+  "edit_predictions": {
+    "provider": "zed",
+  },
+  "context_servers": {},
+  "agent": {
+    "dock": "right",
+    "default_model": {
+      "enable_thinking": true,
+      "provider": "openai",
+      "model": "gpt-5.3-codex",
+    },
+    "model_parameters": [],
   },
   "project_panel": {
-    "dock": "right"
+    "dock": "right",
   },
   "base_keymap": "VSCode",
   "telemetry": {
     "diagnostics": false,
-    "metrics": false
+    "metrics": false,
   },
   "vim_mode": true,
   "ui_font_size": 16,
@@ -24,11 +52,24 @@
   "theme": {
     "mode": "system",
     "light": "One Light",
-    "dark": "Napalm Github x VSCode"
+    "dark": "One Dark",
   },
   "terminal": {
     "line_height": "standard",
-    "font_family": "Hack Nerd Font"
+    "font_family": "Hack Nerd Font",
+  },
+  "agent_servers": {
+    "claude-acp": {
+      "type": "registry",
+    },
+    // "OpenCode": {
+    //   "type": "custom",
+    //   "command": "opencode",
+    //   "args": ["acp"],
+    //   // "command": "bun",
+    //   // "args": ["run", "dev", "acp"],
+    //   "default_model": "opencode/claude-haiku-4-5",
+    // },
   },
   "languages": {
     // Black Formatter
