@@ -81,6 +81,15 @@ export PATH="$JAVA_HOME/bin:$PATH"
 # Tooling configurations
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
+
+z() {
+  case "$1" in
+    oc) builtin cd "$HOME/development/opencode" ;;
+    oc2) builtin cd "$HOME/development/opencode2" ;;
+    *) __zoxide_z "$@" ;;
+  esac
+}
+
 eval "$(pyenv init --path)"
 
 ## FZF
@@ -89,15 +98,8 @@ eval "$(pyenv init --path)"
 
 
 export NVM_DIR="$HOME/.nvm"
-_load_nvm() {
-  unset -f _load_nvm nvm node npm npx corepack
-  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-}
-nvm() { _load_nvm; nvm "$@"; }
-node() { _load_nvm; node "$@"; }
-npm() { _load_nvm; npm "$@"; }
-npx() { _load_nvm; npx "$@"; }
-corepack() { _load_nvm; corepack "$@"; }
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # sst
 export PATH=/Users/aidencline/.sst/bin:$PATH
