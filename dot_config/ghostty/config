@@ -1,1 +1,1 @@
-keybind = cmd+b=next_tab
+keybind = performable:cmd+b=next_tab
