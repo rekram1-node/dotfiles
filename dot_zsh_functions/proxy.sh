@@ -1,4 +1,4 @@
-proxy(){
+proxy() {
   if [[ -z "$1" ]]; then
     echo "Usage: proxy <command>"
     return 1
@@ -12,14 +12,25 @@ proxy(){
   done
   echo " ready"
 
-  export NODE_EXTRA_CA_CERTS="/Users/$USER/.mitmproxy/mitmproxy-ca-cert.pem"
-  export HTTPS_PROXY="http://127.0.0.1:58888"
-  export HTTP_PROXY="http://127.0.0.1:58888"
+  local cert="$HOME/.mitmproxy/mitmproxy-ca-cert.pem"
+  local proxy_url="http://127.0.0.1:58888"
+
+  export NODE_EXTRA_CA_CERTS="$cert"
+  export CODEX_CA_CERTIFICATE="$cert"
+  export HTTPS_PROXY="$proxy_url"
+  export HTTP_PROXY="$proxy_url"
+  export ALL_PROXY="$proxy_url"
+  export WS_PROXY="$proxy_url"
+  export WSS_PROXY="$proxy_url"
   export NO_PROXY="localhost,127.0.0.1"
 
   "$@"
+  local status=$?
 
   kill "$pid" 2>/dev/null
   wait "$pid" 2>/dev/null
-  unset NODE_EXTRA_CA_CERTS HTTPS_PROXY HTTP_PROXY NO_PROXY
+  unset NODE_EXTRA_CA_CERTS CODEX_CA_CERTIFICATE
+  unset HTTPS_PROXY HTTP_PROXY ALL_PROXY WS_PROXY WSS_PROXY NO_PROXY
+
+  return "$status"
 }
