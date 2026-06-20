@@ -1,5 +1,5 @@
 ---
-model: opencode/gpt-5.2-codex
+model: "anthropic/claude-opus-4-8"
 variant: medium
 ---
 

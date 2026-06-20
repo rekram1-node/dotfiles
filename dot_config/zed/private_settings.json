@@ -66,28 +66,17 @@
     //   "type": "custom",
     //   "command": "opencode",
     //   "args": ["acp"],
-    //   // "command": "bun",
-    //   // "args": ["run", "dev", "acp"],
-    //   "default_model": "opencode/claude-haiku-4-5",
+    //   "env": {
+    //     "OPENCODE_ACP_NEXT": "1",
+    //   },
     // },
   },
-  "languages": {
-    // Black Formatter
-    "Python": {
-      "format_on_save": {
-        "external": {
-          "command": "black",
-          "arguments": ["-"]
-        }
-      }
-    }
-  },
- "lsp": {
+  "lsp": {
     "gopls": {
       "initialization_options": {
         "usePlaceholders": false,
-        "completeFunctionCalls": true
-      }
-    }
-  }
+        "completeFunctionCalls": true,
+      },
+    },
+  },
 }

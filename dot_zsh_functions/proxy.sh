@@ -25,12 +25,12 @@ proxy() {
   export NO_PROXY="localhost,127.0.0.1"
 
   "$@"
-  local status=$?
+  local exit_status=$?
 
   kill "$pid" 2>/dev/null
   wait "$pid" 2>/dev/null
   unset NODE_EXTRA_CA_CERTS CODEX_CA_CERTIFICATE
   unset HTTPS_PROXY HTTP_PROXY ALL_PROXY WS_PROXY WSS_PROXY NO_PROXY
 
-  return "$status"
+  return "$exit_status"
 }
